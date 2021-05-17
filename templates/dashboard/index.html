@@ -1,0 +1,107 @@
+{% extends 'navbar.html' %}
+{% load static %}
+
+{% block content %}
+<!-- bread cam -->
+<nav class='container' aria-label="breadcrumb">
+	<ol class="breadcrumb">
+		<li class="breadcrumb-item"><a class='allLink' href="/"> {% block bone %}
+				Home
+				{% endblock bone %} </a></li>
+		<li class="breadcrumb-item active" aria-current="page">{% block btwo %}
+			Dashboard
+			{% endblock btwo %}</li>
+	</ol>
+</nav>
+
+<!-- bread cam end -->
+
+{% comment %} class joining part {% endcomment %}
+
+<div class="container">
+	{% if details %}
+	<div class="row  ">
+
+
+		{% for details in details  %}
+
+		<div class="col-sm-8 col-md-9 col-lg-10 join-class ">
+			<h4 class='pt-2 '><strong> {{details.joiningText}} </strong></h4>
+		</div>
+		<div class="col-sm-4 col-md-3 col-lg-2 ">
+			<a class=' pt-2 btn btn-primary btn-lg allLink' target='_blank' href=" {{details.classlink}} "> Join
+				Class </a>
+		</div>
+		{% endfor %}
+
+
+
+
+	</div>
+
+
+
+
+
+
+
+
+
+
+	{% else %}
+	{% for noclasstext in noclasstext %}
+	<div class="row">
+
+
+		<div class="no-class col-sm-8 col-md-9 col-lg-10 ">
+			<h4 class='pt-2 '> <strong> {{noclasstext.noclasstext}} </strong></h4>
+
+		</div>
+		<div class="col-sm-4 col-md-3 col-lg-2 ">
+			<a class='pt-2 btn btn-danger btn-lg allLink  ' href=""> No Class </a>
+		</div>
+
+	</div>
+	{% endfor %}
+
+	{% endif %}
+
+
+
+
+
+</div>
+
+
+{% comment %} class joining part end{% endcomment %}
+{% comment %} jumbotron {% endcomment %}
+
+<main>
+	<div class="container py-4">
+
+		<div class="row align-items-md-stretch">
+			<div class="col-md-6">
+				<div class="h-100 p-5 text-white bg-dark rounded-3">
+					<h2>Notice Board</h2>
+					<p>Swap the background-color utility and add a `.text-*` color utility to mix up the jumbotron look.
+						Then, mix and match with additional component themes and more.</p>
+
+				</div>
+			</div>
+			{% comment %} <div class="col-md-6">
+				<div class="h-100 p-5 bg-light border rounded-3">
+					<h2>Add borders</h2>
+					<p>Or, keep it light and add a border for some added definition to the boundaries of your content.
+						Be sure to look under the hood at the source HTML here as we've adjusted the alignment and
+						sizing of both column's content for equal-height.</p>
+					<button class="btn btn-outline-secondary" type="button">Example button</button>
+				</div>
+			</div> {% endcomment %}
+		</div>
+
+
+	</div>
+</main>
+
+{% comment %} end jumbotron {% endcomment %}
+{% endblock content %}
